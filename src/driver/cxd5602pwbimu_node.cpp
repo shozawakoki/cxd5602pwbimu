@@ -24,7 +24,7 @@ SpresenseImuNode::SpresenseImuNode() : rclcpp::Node("spresense_imu_node")
   declare_parameter("frame_id",  "imu_link");
   declare_parameter("imu_topic", "/imu/spresense");
   declare_parameter("time_out",  10.0);
-  declare_parameter("baudrate",  460800);
+  declare_parameter("baudrate",  921600);
 
   declare_parameter("gyro_bias_correction", true);
   declare_parameter("gyro_bias_samples",    4800);

@@ -27,7 +27,7 @@ OdomFusionNode::OdomFusionNode() : Node("wheel_spimu_odom")
   TF_header_frame_ = this->declare_parameter<std::string>("TF_header_frame", "odom");
   TF_child_frame_ = this->declare_parameter<std::string>("TF_child_frame", "base_footprint");
   
-  scale_factor_ = this->declare_parameter<double>("scale_factor", 0.45);
+  scale_factor_ = this->declare_parameter<double>("scale_factor", 1.0);
   pitch_diff_th_ = this->declare_parameter<double>("pitch_difference_threshold", 0.1);
   publish_odom_ = this->declare_parameter<bool>("publish_odom", true);
   publish_TF_ = this->declare_parameter<bool>("publish_TF", true);
