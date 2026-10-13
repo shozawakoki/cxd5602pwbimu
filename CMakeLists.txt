@@ -58,6 +58,21 @@ ament_target_dependencies(wheel_spimu_odom
 install(TARGETS wheel_spimu_odom
   DESTINATION lib/${PROJECT_NAME})
 
+# IMU-only odometry (acceleration double integration + IMU orientation)
+add_executable(onlyimu_odom src/processor/onlyimu_odom.cpp)
+ament_target_dependencies(onlyimu_odom
+  rclcpp
+  sensor_msgs
+  nav_msgs
+  geometry_msgs
+  tf2
+  tf2_ros
+  tf2_geometry_msgs
+)
+
+install(TARGETS onlyimu_odom
+  DESTINATION lib/${PROJECT_NAME})
+
 # Create and install cpp executable
 add_executable(initial_yaw_corrector src/processor/initial_yaw_corrector.cpp)
 ament_target_dependencies(initial_yaw_corrector rclcpp sensor_msgs tf2_geometry_msgs)

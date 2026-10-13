@@ -38,6 +38,17 @@
     <param name="publish_TF" value="false"/>
   </node>
 
+  <!-- IMU-only odometry: no wheel odometry is used -->
+  <node pkg="cxd5602pwbimu" exec="onlyimu_odom" name="onlyimu_odom" output="screen">
+    <param name="imu_topic" value="/imu/spresense/inityaw"/>
+    <param name="odom_topic" value="/odom/onlyimu"/>
+    <param name="publish_TF" value="false"/>
+    <param name="planar_mode" value="true"/>
+    <param name="nonholonomic_constraint" value="false"/>
+    <param name="zupt_enabled" value="false"/>
+    <param name="calibration_samples" value="960"/>
+  </node>
+
   <!-- livox to pointcloud2 -->
   <node pkg="livox_to_pointcloud2" exec="livox_to_pointcloud2_node">
     <remap from="/livox_pointcloud" to="/livox/lidar"/>

@@ -24,6 +24,18 @@
     <param name="input_topic" value="/imu/spresense"/>
     <param name="output_topic" value="/imu/spresense/inityaw"/>
   </node>
+  <!-- IMU-only odometry: no wheel odometry is used -->
+  <node pkg="cxd5602pwbimu" exec="onlyimu_odom" name="onlyimu_odom" output="screen">
+    <param name="use_sim_time" value="$(var use_sim_time)"/>
+    <param name="imu_topic" value="/imu/spresense/inityaw"/>
+    <param name="odom_topic" value="/odom/onlyimu"/>
+    <param name="publish_TF" value="false"/>
+    <param name="planar_mode" value="true"/>
+    <param name="nonholonomic_constraint" value="false"/>
+    <param name="zupt_enabled" value="false"/>
+    <param name="calibration_samples" value="960"/>
+  </node>
+
   <!-- wheel imu odom for spresense imu -->
   <node pkg="cxd5602pwbimu" exec="wheel_spimu_odom">
     <param name="use_sim_time" value="$(var use_sim_time)"/>

@@ -2,6 +2,7 @@ madgwick_filter:
   ros__parameters:
     use_mag:      false
     publish_tf:   true
+    remove_gravity_vector: false  # onlyimu_odom removes gravity itself
     world_frame:  enu       # enu nwu
     frequency:    480.0     # Hz
     beta:         0.05      # 0.05
